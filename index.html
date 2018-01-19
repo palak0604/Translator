@@ -9,6 +9,25 @@
     <meta name="author" content="">
 
     <title>Translator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+        google.load("elements", "1", { packages: "transliteration" });
+        var control;
+        function onLoad() {         
+            var options = {
+                //Source Language
+                sourceLanguage: google.elements.transliteration.LanguageCode.ENGLISH,
+                // Destination language to Transliterate
+                destinationLanguage: [google.elements.transliteration.LanguageCode.HINDI],
+                shortcutKey: 'ctrl+g',
+                transliterationEnabled: true
+            };                     
+            control = new google.elements.transliteration.TransliterationControl(options);  
+            control.makeTransliteratable(['txtMessage']);   
+        }
+        google.setOnLoadCallback(onLoad);         
+</script>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,9 +74,7 @@
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Input your text below</a>
           <br/>
           <br/>
-          <textarea name="description" cols="100" rows="10" style="border:1px solid #999999; color:#333333; font-size:12px;" id="transliterateDiv"></textarea>
-  	<textarea name="description2" cols="100" rows="10" style="border:1px solid #999999; color:#333333; font-size:12px;" id="transliterateDiv2"></textarea>
-          <form>
+          <textarea name="txtMessage" id="txtMessage"></textarea>
         </div>
       </div>
     </header>
@@ -242,31 +259,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-     
-      function onLoad() {
-        var options = {
-            sourceLanguage:
-                google.elements.transliteration.LanguageCode.ENGLISH,
-            destinationLanguage:
-                [google.elements.transliteration.LanguageCode.HINDI],
-            shortcutKey: 'ctrl+g',
-            transliterationEnabled: true
-        };
-       google.load("elements", "1", {
-            packages: "transliteration"
-          });
-        var control =
-            new google.elements.transliteration.TransliterationControl(options);
- 
-        // Enable transliteration in the editable elements with id
-        // 'transliterateDiv'.
-        control.makeTransliteratable(['transliterateDiv']);
-        control.makeTransliteratable(['transliterateDiv2']);
-      }
-      google.setOnLoadCallback(onLoad);
-    </script>
+    
   </body>
 
 </html>
