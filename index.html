@@ -56,7 +56,10 @@
         <div class="intro-text">
           <div class="intro-lead-in">Welcome To Text Translator</div>
           <div class="intro-heading text-uppercase">Because Language should not be Barrior for you!!</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Input your text below</a>
+          <br/>
+          <input size="40" type="text" id="txtEnglish"/>
+          <form>
         </div>
       </div>
     </header>
@@ -241,6 +244,34 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+google.load("elements", "1", {packages: "transliteration"});
+</script> 
+
+<script>
+function OnLoad() {                
+
+                            var options = {
+                                sourceLanguage:
+                                google.elements.transliteration.LanguageCode.ENGLISH,
+                                destinationLanguage:
+                                [google.elements.transliteration.LanguageCode.HINDI],
+                                shortcutKey: 'ctrl+g',
+                                transliterationEnabled: true
+                            };
+
+                    var control = new
+                    google.elements.transliteration.TransliterationControl(options);
+                    control.makeTransliteratable(["txtEnglish"]);
+
+    } //end onLoad function
+
+    google.setOnLoadCallback(OnLoad);
+
+</script> 
+
 
   </body>
 
