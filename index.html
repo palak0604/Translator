@@ -41,10 +41,6 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
-            
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -248,9 +244,7 @@
     <script src="js/agency.min.js"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("elements", "1", {
-            packages: "transliteration"
-          });
+     
       function onLoad() {
         var options = {
             sourceLanguage:
@@ -260,7 +254,9 @@
             shortcutKey: 'ctrl+g',
             transliterationEnabled: true
         };
- 
+       google.load("elements", "1", {
+            packages: "transliteration"
+          });
         var control =
             new google.elements.transliteration.TransliterationControl(options);
  
